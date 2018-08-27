@@ -10,7 +10,6 @@
 
 let $vimhome=fnamemodify(resolve(expand("~/.vimrc")), ':p:h')
 let $vundle=$vimhome."/.vim/bundle/Vundle.vim"
-
 " Be iMproved
 set nocompatible
 
@@ -27,6 +26,7 @@ call vundle#begin()
     Plugin 'scrooloose/nerdtree'                " Project and file navigation
     Plugin 'majutsushi/tagbar'                  " Class/module browser
     Plugin 'kien/ctrlp.vim'                     " Fast transitions on project files
+    Plugin 'tmhedberg/SimpylFold'               " Code folding
 
     "-------------------=== Other ===-------------------------------
     Plugin 'bling/vim-airline'                  " Lean & mean status/tabline for vim
@@ -241,7 +241,7 @@ augroup vimrc_autocmds
 augroup END
 
 " code folding
-let g:pymode_folding=1
+let g:pymode_folding=0
 
 " pep8 indents
 let g:pymode_indent=1
@@ -276,3 +276,7 @@ nnoremap <space> @=((foldclosed(line('.'))<0) ? 'zc' : 'zo')<CR>
 
 " copy/paste cross terminal
 set clipboard=unnamedplus
+
+" SimpylFold Setting
+let g:SimpylFold_fold_import=0
+let b:SimpylFold_fold_import=0
